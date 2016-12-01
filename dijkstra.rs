@@ -16,18 +16,9 @@ fn generateGraph(filename: String) -> Graph {
 
 fn main()
 {
-	#[allow(non_snake_case)]
-	let mut count = 0;
-	let mut fname = String::new();
-	for arg in env::args()
-	{
-		if count == 2
-		{
-			fname = arg;
-		}
-		count += 1;
-	}
+	let fname = env::args().nth(2).unwrap();
 	println!("{}", fname);
+	#[allow(non_snake_case)]
 	let G = generateGraph(fname);
 	//G.nodes.push(String::from("hello"));
 	//G.edges.push(Edge(String::from("hello"),String::from("goodbye"), 1));
