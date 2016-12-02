@@ -4,4 +4,4 @@ version = "0.1.0"
 authors = ["joshualemmon <joshua.lemmon@uoit.net>"]
 
 [dependencies]
-rust-graph = "0.0.3"
+petgraph = "0.4.1"
