@@ -31,7 +31,13 @@ fn generateGraph(filename: String) -> Graph<String, i32>
 		};
 		G.add_edge(n1,n2,weight);
 	}
-	return G;
+	G
+}
+
+fn dijkstra(G: Graph<String, i32>,source: String) -> String
+{
+	let path = String::new();
+	return path;
 }
 
 #[allow(non_snake_case)]
@@ -39,10 +45,6 @@ fn main()
 {
 	let fname = String::from("vals.txt");
 	let G = generateGraph(fname);
-	//G.nodes.push(String::from("hello"));
-	//G.edges.push(Edge(String::from("hello"),String::from("goodbye"), 1));
-	//for e in G.edges
-	//{
-	//	println!("{} -> {} with weight {}", e.0,e.1,e.2);
-	//}
+	println!("{}",G.node_count());
+	//let path = dijkstra(G, "A");
 }
