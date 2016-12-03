@@ -9,7 +9,7 @@ use petgraph::graphmap::UnGraphMap;
 use petgraph::graphmap::GraphMap;
 
 #[allow(non_snake_case)]
-fn generateGraph(filename: String) -> () 
+fn generateGraph(filename: &str) -> UnGraphMap<&str, i32> 
 {
 	let mut G: UnGraphMap<&str,i32> = UnGraphMap::new();
 	let file = match File::open(filename) 
@@ -18,15 +18,16 @@ fn generateGraph(filename: String) -> ()
         Err(_) => panic!("no such file"),
     };
 	let reader = BufReader::new(&file);
-	let mut vals: Vec<String> = Vec::new();
+	let mut lines: Vec<&'static str> = Vec::new();
 	for l in reader.lines()
 	{
-		let line = l.unwrap();
-		vals.push(line);
+		let line: String = l.unwrap();
+		let s: &'static str = &*line; 
+		lines.push(s);
 	}
-	for val in vals
+	for line in lines
 	{
-		let vals: Vec<&str> = val.split('|').collect();
+		let vals: Vec<&str> = line.split('|').collect();
 		let weight = match vals[2].parse::<i32>()
   		{		  		
  			Ok(weight) => weight,
@@ -34,10 +35,10 @@ fn generateGraph(filename: String) -> ()
 		};
 		G.add_edge(vals[0],vals[1],weight);
 	}
-	dijkstra(G, "A");
+	G
 }
 
-fn dijkstra(G: UnGraphMap<&'static str, i32>,source: &str) -> String
+fn dijkstra(G: UnGraphMap<&str, i32>,source: &str) -> String
 {
 	let path = String::new();
 	return path;
@@ -46,8 +47,7 @@ fn dijkstra(G: UnGraphMap<&'static str, i32>,source: &str) -> String
 #[allow(non_snake_case)]
 fn main()
 {
-	let fname = String::from("vals.txt");
-	generateGraph(fname);
+	let G = generateGraph("vals.txt");
 	//println!("{}",G.node_count());
 	//let path = dijkstra(G, "A");
 }
