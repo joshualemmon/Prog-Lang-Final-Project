@@ -22,14 +22,14 @@ fn generateGraph(filename: String) -> Graph<String, i32>
 	{
 		let line = l.unwrap();
 		let vals: Vec<&str> = line.split('|').collect();
-		G.add_node(String::from(vals[0]));
-		G.add_node(String::from(vals[1]));
+		let n1 = G.add_node(String::from(vals[0]));
+		let n2 = G.add_node(String::from(vals[1]));
 		let weight = match vals[2].parse::<i32>()
 		{
 			Ok(weight) => weight,
 			Err(_) => panic!("can't be converted to i32"),
 		};
-		G.add_edge(String::from(vals[0]),String::from(vals[1]),weight);
+		G.add_edge(n1,n2,weight);
 	}
 	return G;
 }
