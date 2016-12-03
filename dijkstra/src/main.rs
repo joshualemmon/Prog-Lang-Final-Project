@@ -2,39 +2,42 @@ extern crate petgraph;
 
 use std::env;
 use std::fs::File;
-use petgraph::Graph;
 use std::io::BufReader;
 use std::io::BufRead;
-use std::str::Split;
+use std::collections::HashSet;
+use petgraph::graphmap::UnGraphMap;
+use petgraph::graphmap::GraphMap;
 
 #[allow(non_snake_case)]
-fn generateGraph(filename: String) -> Graph<String, i32> 
+fn generateGraph(filename: String) -> () 
 {
-	let mut G = Graph::<String, i32>::new();
+	let mut G: UnGraphMap<&str,i32> = UnGraphMap::new();
 	let file = match File::open(filename) 
 	{
         Ok(file) => file,
         Err(_) => panic!("no such file"),
     };
 	let reader = BufReader::new(&file);
-	//let lines: Vec<_> = reader.lines().collect();
+	let mut vals: Vec<String> = Vec::new();
 	for l in reader.lines()
 	{
 		let line = l.unwrap();
-		let vals: Vec<&str> = line.split('|').collect();
-		let n1 = G.add_node(String::from(vals[0]));
-		let n2 = G.add_node(String::from(vals[1]));
-		let weight = match vals[2].parse::<i32>()
-		{
-			Ok(weight) => weight,
-			Err(_) => panic!("can't be converted to i32"),
-		};
-		G.add_edge(n1,n2,weight);
+		vals.push(line);
 	}
-	G
+	for val in vals
+	{
+		let vals: Vec<&str> = val.split('|').collect();
+		let weight = match vals[2].parse::<i32>()
+  		{		  		
+ 			Ok(weight) => weight,
+ 			Err(_) => panic!("can't be converted to i32"),
+		};
+		G.add_edge(vals[0],vals[1],weight);
+	}
+	dijkstra(G, "A");
 }
 
-fn dijkstra(G: Graph<String, i32>,source: String) -> String
+fn dijkstra(G: UnGraphMap<&'static str, i32>,source: &str) -> String
 {
 	let path = String::new();
 	return path;
@@ -44,7 +47,7 @@ fn dijkstra(G: Graph<String, i32>,source: String) -> String
 fn main()
 {
 	let fname = String::from("vals.txt");
-	let G = generateGraph(fname);
-	println!("{}",G.node_count());
+	generateGraph(fname);
+	//println!("{}",G.node_count());
 	//let path = dijkstra(G, "A");
 }
