@@ -1,6 +1,8 @@
 extern crate petgraph;
 
 use petgraph::graphmap::UnGraphMap;
+use std::collections::HashMap;
+use std::collections::HashSet;
 
 #[allow(non_snake_case)]
 fn generate_graph<'a>(lines: Vec<&'static str>) -> UnGraphMap<&'static str, i32> 
@@ -22,14 +24,15 @@ fn generate_graph<'a>(lines: Vec<&'static str>) -> UnGraphMap<&'static str, i32>
 #[allow(non_snake_case)]
 fn dijkstra(G: UnGraphMap<&str, i32>,source: &str) -> String
 {
-	let mut path = String::new();
-	let mut nodes: Vec<&str> = Vec::new();
-
-	for n in nodes
+	let mut dist: HashMap<&str, i32> = HashMap::new();
+	dist.insert(source, 0);
+	for v in G.nodes()
 	{
-		path += n;
+		dist.insert(v,i32::max_value());
 	}
-	return path;
+	let mut S: HashSet<&str> = HashSet::new();
+
+	return String::new();
 }
 
 fn def_lines<'a>() -> Vec<&'a str>
