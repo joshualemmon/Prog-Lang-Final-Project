@@ -25,12 +25,19 @@ fn generate_graph<'a>(lines: Vec<&'static str>) -> UnGraphMap<&'static str, i32>
 fn dijkstra(G: UnGraphMap<&str, i32>,source: &str) -> String
 {
 	let mut dist: HashMap<&str, i32> = HashMap::new();
+	let mut parent: HashMap<&str, &str> = HashMap::new();
 	dist.insert(source, 0);
 	for v in G.nodes()
 	{
 		dist.insert(v,i32::max_value());
+		parent.insert(v,None);
 	}
 	let mut S: HashSet<&str> = HashSet::new();
+
+	/*relax 
+	if dist[v] > dist[u] + weight[u,v]
+		dist[v] = dist[u] + weight[u,v]
+		parent[v] = u*/
 
 	return String::new();
 }
