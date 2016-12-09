@@ -53,28 +53,22 @@ fn dijkstra(G: UnGraphMap<&str, i32>,source: &str) -> ()
 			}
 		}
 	}
-	let mut i = 0;
 
 	while S.is_empty() == false
 	{
-		let u = sorted[i];
-		i+=1;
+		let u = sorted.remove(0);
 		S.remove(u);
 		for v in G.neighbors(u)
 		{
 			let edge = G.edge_weight(u,v);
-			/*let e = match edge
-			{
-				Some(ref val) => *val,
-				None => -1,
-			};*/
 			let e = edge.unwrap();
-
 			let du = dist[u];
 			if dist[v] > du + e
 			{
 				dist.insert(v,(du + e));
 				parent.insert(v,u);
+				S.insert(u);
+				sorted.push(u);
 			}
 		}
 	}
@@ -83,14 +77,12 @@ fn dijkstra(G: UnGraphMap<&str, i32>,source: &str) -> ()
 		if n != source
 		{
 			println!("From {} to {}",source,n);
-			println!("{}",printPath(source,n,&parent, &dist));
+			println!("{}",print_path(source,n,&parent, &dist));
 		}
 	}
-
-	
 }
 
-fn printPath(source: &str, dest: &str, parent: &HashMap<&str, &str>, dist: &HashMap<&str, i32>) -> String
+fn print_path(source: &str, dest: &str, parent: &HashMap<&str, &str>, dist: &HashMap<&str, i32>) -> String
 {
 	let mut path = String::new();
 	let mut p = parent[dest];

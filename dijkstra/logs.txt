@@ -1,0 +1,169 @@
+commit 6456db8f3fecf66748138fa8243efbe6c47a9eba
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Fri Dec 9 13:22:08 2016 -0500
+
+    Algorithm now calculates shortest paths for every node in the graph
+
+commit 10fdd8a68706ee6868d42109faa4af079a9bcd6a
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Fri Dec 9 12:49:48 2016 -0500
+
+    Algorithm now computes shortest distance for each node from source
+
+commit b5684c5601b1f4a13eecd301aab77384961a0ed9
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Fri Dec 9 12:00:22 2016 -0500
+
+    Added sort algorithm to sort nodes by distance
+
+commit 7ef41678bdb10223cd9aa707bb7fb13ad2ca9a9a
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Sun Dec 4 12:18:44 2016 -0500
+
+    added parent hashmap and pseudocode for relaxedge
+
+commit 4e10178a238b4385bfb274f7bb173e11b78ee122
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Sun Dec 4 12:14:49 2016 -0500
+
+    implemented the initializer for algorithm
+
+commit 741df43ae884b7d74270fbc611823f5c63ff1f6c
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Sat Dec 3 17:05:42 2016 -0500
+
+    Built loop that creates the String to be returned from dijkstra function
+
+commit 8eb2289ab3200968d077f69dce8f4937c090e804
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Sat Dec 3 16:50:39 2016 -0500
+
+    Due to type ownership problems, cut out the file and instead manually inputted the edge data
+
+commit 0d9ce428a8a416d258a38fe49ba4ee7d0cf1f1b2
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Sat Dec 3 16:17:38 2016 -0500
+
+    Tried fixing lifetime problem
+
+commit 2dc3f70f620ed2608cbd67e178159cbbd4837a7b
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Sat Dec 3 15:32:43 2016 -0500
+
+    Switched to graphmap, trying to get it functional
+
+commit f0ebe3600ec4fd659b75aaf6822375b439577fe7
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Sat Dec 3 13:48:24 2016 -0500
+
+    Graph gets constructed but duplicates nodes
+
+commit 633a4e1c4b99dbc6522c1fb8af4e81922bf39ae0
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Sat Dec 3 13:29:01 2016 -0500
+
+    Fixed adding edge
+
+commit 5aabd6ab65c092f9e515cb4a69077f28cb592f58
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Sat Dec 3 13:27:52 2016 -0500
+
+    Textfile data parsing correctly, can add nodes to graph. Error when adding edge to graph.
+
+commit 4633f744723fe882f5f292114b9f2a23c066779d
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Sat Dec 3 12:58:38 2016 -0500
+
+    Fixed try! macro error when opening file
+
+commit fe3c457627db5482d276de4469b36138ed952a54
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Fri Dec 2 14:18:02 2016 -0500
+
+    Built dependencies
+
+commit 09ab70051f34356620d79be5216a78cc3a8857d7
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Fri Dec 2 14:11:47 2016 -0500
+
+    Found better graph library: petgraph by bluss, https://github.com/bluss/petgraph
+
+commit 8faefbe3bf588a669b37cd314df63b3876ad1ca3
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Fri Dec 2 14:01:05 2016 -0500
+
+    Adding dependency for rust-graph crate created by gsingh93. Link to his repository: https://github.com/gsingh93/rust-graph
+
+commit 2b7c86390b4ee3bec93fdbc391a733e8a18ae5ff
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Fri Dec 2 13:57:34 2016 -0500
+
+    Removing old directory
+
+commit 89b0b01b9dedbf536d473116b1b2c723ca7c7e0e
+Merge: fc62916 b5a4d00
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Fri Dec 2 13:51:10 2016 -0500
+
+    Merge branch 'master' of https://github.com/joshualemmon/Prog-Lang-Final-Project
+    Changing to cargo project
+
+commit fc62916481af4bb695575babdd2ff280bb42e5cf
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Fri Dec 2 13:47:57 2016 -0500
+
+    Changing to cargo project
+
+commit b5a4d00508cd232a51f0e005a5bedda33b85c2af
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Fri Dec 2 13:47:20 2016 -0500
+
+    Changing to cargo project
+
+commit 9085b39c986949810cf790548be49d732903be23
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Fri Dec 2 13:45:26 2016 -0500
+
+    Remade project using cargo
+
+commit 4a3ac6281bb058c7fa6c3d5cd0234570adbdef3d
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Thu Dec 1 14:28:42 2016 -0500
+
+    made getting filename from args more optimised
+
+commit 57519de862d8ba1409863e506e9cefb736655675
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Thu Dec 1 12:41:50 2016 -0500
+
+    program can now read in a filename as an argument
+
+commit 8e789c1a5efb36ca2d7659d35211d0b7bbcbf6ce
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Thu Dec 1 12:00:27 2016 -0500
+
+    Now have working Edge struct and Graph struct that can be iterated over
+
+commit 5a461069da798f75b4c300d6136a81e9c7b0a534
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Thu Dec 1 11:50:07 2016 -0500
+
+    Fixed struct implementations, now trying to do some testing to see how well they work
+
+commit 68df8d43e7561cf6e6246b163005e6adb9f6a06d
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Thu Dec 1 11:28:48 2016 -0500
+
+    Added a struct tiple to describe edges, created a struct to describe a graph
+
+commit c3a71ce841bd2ee3d413b87951d269b260535db1
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Tue Nov 29 12:07:31 2016 -0500
+
+    initial commit
+
+commit bdb81885ab78a0085f908dba2cc49f059d3f517b
+Author: Joshua Lemmon <joshualemmon@users.noreply.github.com>
+Date:   Sun Nov 27 21:52:19 2016 -0500
+
+    Initial commit
