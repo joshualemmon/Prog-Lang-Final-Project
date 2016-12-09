@@ -26,13 +26,45 @@ fn dijkstra(G: UnGraphMap<&str, i32>,source: &str) -> String
 {
 	let mut dist: HashMap<&str, i32> = HashMap::new();
 	let mut parent: HashMap<&str, &str> = HashMap::new();
-	dist.insert(source, 0);
+	let mut S: HashSet<&str> = HashSet::new();
+	let mut sorted: Vec<&str> = Vec::new();
 	for v in G.nodes()
 	{
 		dist.insert(v,i32::max_value());
-		parent.insert(v,None);
+		parent.insert(v,v);
+		S.insert(v);
+		sorted.push(v);
 	}
-	let mut S: HashSet<&str> = HashSet::new();
+	dist.insert(source, 0);
+
+	let mut swapped = true;
+	let n = sorted.len();
+	while swapped == true
+	{
+		swapped = false;
+		for i in 1..(n-1)
+		{
+			if dist[sorted[i-1]] > dist[sorted[i]]
+			{
+				let s = sorted[i];
+				sorted[i] = sorted[i-1];
+				sorted[i-1] = s;
+				swapped = true;
+			}
+		}
+	}
+	for v in sorted
+	{
+		println!("{}", v);
+	}
+	let mut i = 0;
+
+	/*while S.is_empty() != false
+	{
+		let u = sorted[i];
+		i+=1;
+		S.remove(u);
+	}*/
 
 	/*relax 
 	if dist[v] > dist[u] + weight[u,v]
@@ -57,7 +89,7 @@ fn def_lines<'a>() -> Vec<&'a str>
 fn main()
 {
 	let G = generate_graph(def_lines());
-	println!("{}", G.node_count());
+	//println!("{}", G.node_count());
 	let path = dijkstra(G, "A");
 	println!("Shortest path is: {}", path);
 }
