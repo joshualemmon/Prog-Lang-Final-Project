@@ -1,3 +1,9 @@
+commit f178edc263598485c00c98102d7205ac9693ee16
+Author: joshualemmon <joshua.lemmon@uoit.net>
+Date:   Fri Dec 9 15:01:44 2016 -0500
+
+    Fixed error where last path had wrong cost. Removed unneeded code
+
 commit 6456db8f3fecf66748138fa8243efbe6c47a9eba
 Author: joshualemmon <joshua.lemmon@uoit.net>
 Date:   Fri Dec 9 13:22:08 2016 -0500

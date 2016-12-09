@@ -28,6 +28,7 @@ fn dijkstra(G: UnGraphMap<&str, i32>,source: &str) -> ()
 	let mut parent: HashMap<&str, &str> = HashMap::new();
 	let mut S: HashSet<&str> = HashSet::new();
 	let mut sorted: Vec<&str> = Vec::new();
+	
 	for v in G.nodes()
 	{
 		dist.insert(v,i32::max_value());
@@ -129,6 +130,5 @@ fn def_lines<'a>() -> Vec<&'a str>
 fn main()
 {
 	let G = generate_graph(def_lines());
-	//println!("{}", G.node_count());
 	dijkstra(G, "A");
 }
