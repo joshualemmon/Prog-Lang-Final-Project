@@ -53,23 +53,35 @@ fn dijkstra(G: UnGraphMap<&str, i32>,source: &str) -> String
 			}
 		}
 	}
-	for v in sorted
-	{
-		println!("{}", v);
-	}
 	let mut i = 0;
 
-	/*while S.is_empty() != false
+	while S.is_empty() == false
 	{
 		let u = sorted[i];
 		i+=1;
 		S.remove(u);
-	}*/
+		for v in G.neighbors(u)
+		{
+			let edge = G.edge_weight(u,v);
+			/*let e = match edge
+			{
+				Some(ref val) => *val,
+				None => -1,
+			};*/
+			let e = edge.unwrap();
 
-	/*relax 
-	if dist[v] > dist[u] + weight[u,v]
-		dist[v] = dist[u] + weight[u,v]
-		parent[v] = u*/
+			let du = dist[u];
+			if dist[v] > du + e
+			{
+				dist.insert(v,(du + e));
+				parent.insert(v,u);
+			}
+		}
+	}
+	for n in G.nodes()
+	{
+		println!("{} : {}",n,dist[n]);
+	}
 
 	return String::new();
 }
